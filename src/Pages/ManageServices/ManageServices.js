@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ManageServices.css'
-import Services from '../Home/Services/Services';
+
+import { Link } from 'react-router-dom';
 
 const ManageServices = () => {
     const [services, setServices] = useState([])
@@ -11,7 +12,9 @@ const ManageServices = () => {
     },[])
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/services/${id}`
+        const proceed = window.confirm("Are You Sure to Delete the Service?")
+        if (proceed){
+            const url = `http://localhost:5000/services/${id}`
         fetch(url,{
             method: 'DELETE'
         })
@@ -23,7 +26,9 @@ const ManageServices = () => {
             setServices(remainingServices)
             }
             
-        })
+          })
+        }
+        
     }
 
     return (
@@ -33,6 +38,9 @@ const ManageServices = () => {
                 services.map(service => <div key={service._id} className="service-container-manage">
                     <h3>{service.name}</h3>
                     <h4>Price:{service.price}</h4>
+                    <Link to={`/services/update/${service._id}`}>
+                        <button>Update</button>
+                    </Link>
                     <button onClick={()=> handleDelete(service._id)}>Delete</button>
                 </div>
                 )
