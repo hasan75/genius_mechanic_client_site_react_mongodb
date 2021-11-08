@@ -45,6 +45,21 @@ const UpdateService = () => {
     
     //update service
     const handleUpdateService = e => {
+        const url = `http://localhost:5000/services/${serviceId}`;
+        fetch(url, {
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(service)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                alert('Updated Successfully')
+                setService({})
+            }
+        })
 
 
         e.preventDefault();
