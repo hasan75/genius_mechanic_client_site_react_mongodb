@@ -10,7 +10,7 @@ const Header = () => {
         <>
            <Navbar collapseOnSelect expand="lg" sticky='top' bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Car Service</Navbar.Brand>
+                    <Navbar.Brand as={HashLink} to="/home#home">Car Service</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
