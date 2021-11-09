@@ -19,28 +19,27 @@ const UpdateService = () => {
         const updatedService = {...service}
         updatedService.name = updatedName;
         setService(updatedService);
-
     } 
+
     const handlePriceChange = e => {
         const updatedPrice = e.target.value;
         const updatedService = {...service}
         updatedService.price = updatedPrice;
         setService(updatedService);
-
     } 
+
     const handleDesChange = e => {
         const updatedDescription = e.target.value;
         const updatedService = {...service}
         updatedService.description = updatedDescription;
         setService(updatedService);
-
     } 
+
     const handleImgChange = e => {
         const updatedImg = e.target.value;
         const updatedService = {...service}
         updatedService.img = updatedImg;
         setService(updatedService);
-
     } 
     
     //update service
@@ -60,7 +59,6 @@ const UpdateService = () => {
                 setService({})
             }
         })
-
 
         e.preventDefault();
 
